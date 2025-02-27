@@ -1,0 +1,6 @@
+{
+  "name": "1shot.live",
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.49.1"
+  }
+}

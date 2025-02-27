@@ -26,3 +26,15 @@ body {
   transform: translate(0, 0);
   box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 1);
 }
+
+/* Slider arrow styles */
+.game-card button[aria-label="Previous image"],
+.game-card button[aria-label="Next image"] {
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.game-card button[aria-label="Previous image"]:hover,
+.game-card button[aria-label="Next image"]:hover {
+  opacity: 1;
+}
