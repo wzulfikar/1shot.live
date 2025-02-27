@@ -15,35 +15,45 @@
     <script src="https://unpkg.com/preact@10.13.1/hooks/dist/hooks.umd.js"></script>
     <script src="https://unpkg.com/htm@3.1.1/dist/htm.js"></script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
       body {
-        font-family: "Inter", sans-serif;
+        font-family: "Space Grotesk", sans-serif;
+        background-color: #f0f0f0;
       }
       .game-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
       .game-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
-          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .neo-button {
+        transition: transform 0.1s ease, box-shadow 0.1s ease;
+      }
+      .neo-button:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 1);
+      }
+      .neo-button:active {
+        transform: translate(0, 0);
+        box-shadow: 2px 2px 0 0 rgba(0, 0, 0, 1);
       }
     </style>
   </head>
-  <body class="bg-gray-50 min-h-screen">
-    <header
-      class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg"
-    >
+  <body class="bg-yellow-50 min-h-screen">
+    <header class="bg-blue-400 text-black border-b-4 border-black">
       <div class="container mx-auto px-4 py-6 md:py-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div>
             <h1 class="text-3xl md:text-4xl font-bold">1shot.live</h1>
-            <p class="mt-2 text-purple-100">Discover games built with AI</p>
+            <p class="mt-2 text-black font-medium">
+              Discover games built with AI
+            </p>
           </div>
           <div class="mt-4 md:mt-0">
             <a
               href="https://github.com/wzulfikar/1shot.live"
               target="_blank"
-              class="inline-flex items-center px-4 py-2 bg-white bg-opacity-20 rounded-lg hover:bg-opacity-30 transition-all"
+              class="neo-button inline-flex items-center px-4 py-2 bg-pink-400 border-2 border-black rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-500 font-bold"
             >
               <i class="fab fa-github mr-2"></i> GitHub
             </a>
@@ -53,40 +63,48 @@
     </header>
 
     <main class="container mx-auto px-4 py-8">
-      <div class="mb-8">
-        <h2 class="text-2xl font-semibold text-gray-800">Recently Added</h2>
-        <p class="text-gray-600">Explore our collection of AI-built games</p>
+      <div
+        class="mb-8 bg-white border-2 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] rounded"
+      >
+        <h2 class="text-2xl font-bold text-black">Recently Added</h2>
+        <p class="text-black font-medium">
+          Explore our collection of AI-built games
+        </p>
       </div>
 
       <!-- Preact root element -->
       <div id="games-app"></div>
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="bg-green-400 text-black py-8 border-t-4 border-black">
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="mb-4 md:mb-0">
             <h2 class="text-xl font-bold">1shot.live</h2>
-            <p class="text-gray-400 mt-1">A directory of AI-built games</p>
+            <p class="text-black mt-1 font-medium">
+              A directory of AI-built games
+            </p>
           </div>
           <div class="flex space-x-4">
             <a
               href="https://github.com/wzulfikar/1shot.live"
               target="_blank"
-              class="text-gray-400 hover:text-white transition-colors"
+              class="text-black hover:text-blue-800 transition-colors"
             >
               <i class="fab fa-github text-xl"></i>
             </a>
             <a
               href="https://twitter.com/wzulfikar"
               target="_blank"
-              class="text-gray-400 hover:text-white transition-colors"
+              class="text-black hover:text-blue-800 transition-colors"
             >
               <i class="fab fa-twitter text-xl"></i>
             </a>
           </div>
         </div>
-        <div class="mt-6 text-center text-gray-400 text-sm">
+        <div
+          class="mt-6 text-center text-black font-medium border-t-2 border-black pt-4"
+        >
           &copy; 2023 1shot.live. All rights reserved.
         </div>
       </div>
@@ -94,13 +112,13 @@
 
     <!-- Import Map for ES Modules -->
     <script type="importmap">
-    {
+      {
         "imports": {
-            "preact": "https://unpkg.com/preact@10.13.1/dist/preact.module.js",
-            "preact/hooks": "https://unpkg.com/preact@10.13.1/hooks/dist/hooks.module.js",
-            "htm/preact": "https://unpkg.com/htm@3.1.1/preact/index.module.js"
+          "preact": "https://unpkg.com/preact@10.13.1/dist/preact.module.js",
+          "preact/hooks": "https://unpkg.com/preact@10.13.1/hooks/dist/hooks.module.js",
+          "htm/preact": "https://unpkg.com/htm@3.1.1/preact/index.module.js"
         }
-    }
+      }
     </script>
 
     <!-- Main Script -->

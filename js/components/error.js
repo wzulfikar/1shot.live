@@ -1,9 +1,8 @@
 // Error component
 export const ErrorMessage = () => {
     return html`
-        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-8" role="alert">
-            <p class="font-bold">Error</p>
-            <p>Failed to load games. Please try again later.</p>
+        <div class="text-center py-12 bg-red-300 border-2 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <p class="text-black font-bold">Oops! Something went wrong. Please try again later.</p>
         </div>
     `;
 }; 

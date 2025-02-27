@@ -1,9 +1,9 @@
 // Loading component
 export const Loading = () => {
     return html`
-        <div class="text-center py-12">
-            <div class="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-600"></div>
-            <p class="mt-4 text-gray-600">Loading games...</p>
+        <div class="flex flex-col items-center justify-center py-12 bg-white border-2 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            <div class="animate-spin rounded-none h-10 w-10 border-4 border-black border-t-transparent mb-4"></div>
+            <p class="text-black font-bold">Loading games...</p>
         </div>
     `;
 }; 
