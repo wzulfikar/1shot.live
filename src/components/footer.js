@@ -1,4 +1,3 @@
-// Footer component
 export const Footer = () => {
   return html`
     <footer class="bg-green-400 text-black py-8 border-t-4 border-black">
@@ -30,9 +29,9 @@ export const Footer = () => {
         <div
           class="mt-6 text-center text-black font-medium border-t-2 border-black pt-4"
         >
-          &copy; 2023 1shot.live. All rights reserved.
+          ${new Date().getFullYear()} · 1shot.live · All rights reserved
         </div>
       </div>
     </footer>
   `;
-}; 
+};
