@@ -35,7 +35,7 @@ export const OnlineVisitors = () => {
         <div
           class="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 transition-all duration-200 mb-6 bg-yellow-400 rounded"
         >
-          <p>Waiting for visitors...</p>
+          <p class="text-sm">Waiting for visitors...</p>
         </div>
       </div>
     `;
@@ -44,8 +44,11 @@ export const OnlineVisitors = () => {
   return html`
     <div class="max-w-xs mx-auto">
       <div
-        class="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 transition-all duration-200 mb-2 bg-yellow-400 rounded"
+        class="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 transition-all duration-200 mb-2 bg-yellow-400 rounded flex items-center justify-between gap-2"
       >
+        <div class="text-center text-sm">
+          ${visitors.length} online visitors
+        </div>
         <ul class="list-none p-0 flex h-6 -space-x-2 items-center">
           ${visitors.map((visitor, index) => {
             const visitorId =
@@ -56,13 +59,18 @@ export const OnlineVisitors = () => {
             return html`
               <li
                 key=${index}
-                class="flex items-center justify-center bg-white border-2 border-black rounded-full w-8 h-8 hover:-translate-y-0.5 transition-transform"
+                class="group relative flex items-center justify-center bg-white border-2 border-black rounded-full w-8 h-8 hover:-translate-y-0.5 transition-transform"
               >
                 <img
                   src="https://api.dicebear.com/9.x/pixel-art/svg?seed=${visitorId}"
                   alt="User"
                   class="w-6 h-6 rounded-full"
                 />
+                <div
+                  class="absolute -top-8 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap"
+                >
+                  ${visitorId}
+                </div>
               </li>
             `;
           })}
