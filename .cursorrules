@@ -1,0 +1,11 @@
+## Style
+
+- Use Neo Brutalism from https://www.neobrutalism.dev
+
+## Structure
+
+- Use Preact for front end library, not React
+- Put components in js/ folder
+- Use kebab-case for component file name
+- main.js is the main entry point that renders the app (js/app.js)
+- Some functions are exposed globally (e.g. `useState`, `useEffect`). Refer to main.js for full list.

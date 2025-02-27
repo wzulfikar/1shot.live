@@ -21,7 +21,7 @@ export const GameCard = ({ game }) => {
     };
 
     return html`
-        <div class="game-card bg-white border-2 border-black rounded-none overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 rounded">
+        <div class="game-card bg-white border-2 border-black overflow-hidden shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200 rounded">
             <a href=${game.url} target="_blank" class="block">
                 <img 
                     src=${game.image || 'https://via.placeholder.com/400x225?text=Game+Image'} 
