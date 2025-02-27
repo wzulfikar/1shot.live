@@ -7,6 +7,11 @@
     "image": "https://images.unsplash.com/photo-1586165368502-1bad197a6461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "Strategy",
     "tags": ["Chess", "AI Opponent", "Multiplayer"],
+    "author": {
+      "name": "someone",
+      "profile_url": "x.com/someone",
+      "avatar": "example.com"
+    },
     "createdAt": "2023-05-15"
   },
   {
@@ -17,6 +22,11 @@
     "image": "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "Platformer",
     "tags": ["Procedural", "Pixel Art", "Adventure"],
+    "author": {
+      "name": "someone",
+      "profile_url": "x.com/someone",
+      "avatar": "example.com"
+    },
     "createdAt": "2023-06-22"
   },
   {
@@ -27,6 +37,11 @@
     "image": "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "Interactive Fiction",
     "tags": ["Story", "Text-based", "Choices Matter"],
+    "author": {
+      "name": "someone",
+      "profile_url": "x.com/someone",
+      "avatar": "example.com"
+    },
     "createdAt": "2023-04-10"
   },
   {
@@ -37,6 +52,11 @@
     "image": "https://images.unsplash.com/photo-1518736114810-3f3bedfec66a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "RPG",
     "tags": ["Fantasy", "Text-based", "Adventure"],
+    "author": {
+      "name": "someone",
+      "profile_url": "x.com/someone",
+      "avatar": "example.com"
+    },
     "createdAt": "2023-07-05"
   },
   {
@@ -47,6 +67,11 @@
     "image": "https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "Simulation",
     "tags": ["Space", "Voice Control", "Sci-Fi"],
+    "author": {
+      "name": "someone",
+      "profile_url": "x.com/someone",
+      "avatar": "example.com"
+    },
     "createdAt": "2023-08-18"
   },
   {
@@ -57,6 +82,11 @@
     "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     "category": "Creative",
     "tags": ["Art", "Relaxing", "Creation"],
+    "author": {
+      "name": "someone",
+      "profile_url": "x.com/someone",
+      "avatar": "example.com"
+    },
     "createdAt": "2023-09-01"
   }
-] 
+]
