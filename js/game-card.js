@@ -1,4 +1,3 @@
-// Game Card component
 export const GameCard = ({ game }) => {
     const handleImageError = (e) => {
         e.target.src = 'https://via.placeholder.com/400x225?text=Game+Image';

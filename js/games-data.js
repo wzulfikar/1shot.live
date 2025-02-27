@@ -1,4 +1,4 @@
-[
+export const gamesData = [
   {
     "id": "1",
     "title": "AI Chess Master",
@@ -89,4 +89,4 @@
     },
     "createdAt": "2023-09-01"
   }
-]
+]; 
