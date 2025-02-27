@@ -1,13 +1,15 @@
+import { getSessionId } from "../lib/session-id.js";
 import { initPresence } from "../lib/supabase-client.js";
 
 export const OnlineVisitors = () => {
   const [visitors, setVisitors] = useState([]);
+  const sessionId = useRef(getSessionId());
 
   useEffect(() => {
     // Initialize presence and track visitors
     const initializePresence = async () => {
       try {
-        await initPresence();
+        await initPresence(sessionId.current);
       } catch (error) {
         console.error("Error initializing presence:", error);
       }
@@ -50,16 +52,15 @@ export const OnlineVisitors = () => {
           ${visitors.length} online visitors
         </div>
         <ul class="list-none p-0 flex h-6 -space-x-2 items-center">
-          ${visitors.map((visitor, index) => {
-            const visitorId =
-              visitor && visitor.user_id
-                ? visitor.user_id.substring(0, 4)
-                : "Unknown";
+          ${visitors.slice(0, 5).map((visitor, index) => {
+            const visitorId = visitor?.session_id || "Unknown";
+            const isCurrentUser = visitorId === sessionId.current;
+            const className = isCurrentUser ? "border-2 border-green-700" : "";
 
             return html`
               <li
                 key=${index}
-                class="group relative flex items-center justify-center bg-white border-2 border-black rounded-full w-8 h-8 hover:-translate-y-0.5 transition-transform"
+                class="group relative flex items-center justify-center bg-white border-2 border-black rounded-full w-8 h-8 hover:-translate-y-0.5 hover:z-10 transition-transform ${className}"
               >
                 <img
                   src="https://api.dicebear.com/9.x/pixel-art/svg?seed=${visitorId}"
@@ -69,7 +70,7 @@ export const OnlineVisitors = () => {
                 <div
                   class="absolute -top-8 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap"
                 >
-                  ${visitorId}
+                  ${visitorId} ${isCurrentUser ? "(You)" : ""}
                 </div>
               </li>
             `;

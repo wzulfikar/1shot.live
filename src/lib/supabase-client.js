@@ -1,13 +1,8 @@
-export const sessionId = Math.random().toString(36).substring(2, 15);
-
 // Initialize presence channel
-export const initPresence = async (displayName = "Visitor") => {
+export const initPresence = async (sessionId) => {
   const { supabaseUrl, supabaseKey } = window.PUBLIC_ENV;
   const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
-
-  const {
-    data: { session },
-  } = await supabase.auth.getSession();
+  const _ = await supabase.auth.getSession();
 
   // For this implementation, we'll create a public channel that doesn't require authentication
   const channel = supabase.channel("online-visitors", {
@@ -46,10 +41,8 @@ export const initPresence = async (displayName = "Visitor") => {
     if (status === "SUBSCRIBED") {
       // Enter the channel with some user metadata
       await channel.track({
-        user_id: sessionId,
-        displayName: displayName,
+        session_id: sessionId,
         timestamp: new Date().toISOString(),
-        user_agent: navigator.userAgent,
       });
     }
   });

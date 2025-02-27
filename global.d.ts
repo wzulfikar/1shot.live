@@ -8,7 +8,7 @@ declare global {
   // Hooks from Preact
   const useState: <T>(initialState: T | (() => T)) => [T, StateUpdater<T>];
   const useEffect: typeof import('preact/hooks').useEffect;
-
+  const useRef: typeof import('preact/hooks').useRef;
   // htm bound to h for JSX-like syntax
   const h: typeof import('preact').h;
   const html: (strings: TemplateStringsArray, ...values: any[]) => VNode<any>;

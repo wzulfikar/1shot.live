@@ -7,6 +7,7 @@ import {
 import {
   useState,
   useEffect,
+  useRef,
 } from "https://unpkg.com/preact@10.13.1/hooks/dist/hooks.module.js";
 import htm from "https://unpkg.com/htm@3.1.1/dist/htm.module.js";
 
@@ -17,6 +18,7 @@ import { App } from "./components/app.js";
 window.h = h;
 window.useState = useState;
 window.useEffect = useEffect;
+window.useRef = useRef;
 window.html = htm.bind(h);
 
 window.PUBLIC_ENV = {
