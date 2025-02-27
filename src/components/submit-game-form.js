@@ -1,5 +1,3 @@
-// Submit Game Form component
-// Using global useState and html from main.js
 export const SubmitGameForm = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     url: '',

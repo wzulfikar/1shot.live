@@ -4,7 +4,11 @@ export const gamesData = [
     "title": "AI Chess Master",
     "description": "Play chess against an AI opponent that adapts to your skill level and playing style.",
     "url": "https://example.com/ai-chess-master",
-    "image": "https://images.unsplash.com/photo-1586165368502-1bad197a6461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1586165368502-1bad197a6461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1560174038-594a6e2e8b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     "category": "Strategy",
     "tags": ["Chess", "AI Opponent", "Multiplayer"],
     "author": {
@@ -19,7 +23,10 @@ export const gamesData = [
     "title": "Pixel Adventure",
     "description": "An AI-generated platformer with procedurally created levels that are never the same twice.",
     "url": "https://example.com/pixel-adventure",
-    "image": "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1605899435973-ca2d1a8431cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     "category": "Platformer",
     "tags": ["Procedural", "Pixel Art", "Adventure"],
     "author": {
@@ -34,7 +41,9 @@ export const gamesData = [
     "title": "Story Weaver",
     "description": "An interactive fiction game where AI generates unique storylines based on your choices.",
     "url": "https://example.com/story-weaver",
-    "image": "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     "category": "Interactive Fiction",
     "tags": ["Story", "Text-based", "Choices Matter"],
     "author": {
@@ -49,7 +58,11 @@ export const gamesData = [
     "title": "AI Dungeon Master",
     "description": "A text-based RPG where an AI dungeon master creates and narrates your adventure in real-time.",
     "url": "https://example.com/ai-dungeon-master",
-    "image": "https://images.unsplash.com/photo-1518736114810-3f3bedfec66a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1518736114810-3f3bedfec66a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     "category": "RPG",
     "tags": ["Fantasy", "Text-based", "Adventure"],
     "author": {
@@ -64,7 +77,10 @@ export const gamesData = [
     "title": "Voice Commander",
     "description": "Control your spaceship with voice commands in this innovative AI-powered space simulator.",
     "url": "https://example.com/voice-commander",
-    "image": "https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     "category": "Simulation",
     "tags": ["Space", "Voice Control", "Sci-Fi"],
     "author": {
@@ -79,7 +95,10 @@ export const gamesData = [
     "title": "Dream Painter",
     "description": "Create artwork with AI assistance in this relaxing and creative game experience.",
     "url": "https://example.com/dream-painter",
-    "image": "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    "images": [
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    ],
     "category": "Creative",
     "tags": ["Art", "Relaxing", "Creation"],
     "author": {
