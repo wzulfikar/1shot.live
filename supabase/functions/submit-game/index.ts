@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
     }
 
     // Parse the request body
-    const body: GameSubmission = await req.tson()
+    const body: GameSubmission = await req.json()
     const { gameName, url, xProfile, description, turnstileToken } = body
 
     const verifyTurnstile = await verifyTurnstileToken(turnstileToken)
