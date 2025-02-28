@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "noEmit": true
+  },
+  "include": ["supabase/functions/**/*"],
+  "exclude": ["node_modules"]
+}

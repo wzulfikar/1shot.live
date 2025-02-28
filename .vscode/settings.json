@@ -1,5 +1,8 @@
 {
   "files.associations": {
     "*.js": "typescriptreact"
-  }
+  },
+  "deno.enablePaths": [
+    "supabase/functions"
+  ]
 }
