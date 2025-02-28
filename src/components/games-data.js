@@ -1,111 +1,184 @@
 export const gamesData = [
   {
-    "id": "1",
-    "title": "AI Chess Master",
-    "description": "Play chess against an AI opponent that adapts to your skill level and playing style.",
-    "url": "https://example.com/ai-chess-master",
-    "images": [
+    id: "1",
+    title: "Flight Simulator",
+    description:
+      "A fun free-to-play MMO flight sim without any loading screens and GBs of updates every time you wanna play 😊",
+    url: "https://fly.pieter.com",
+    images: [
       "https://images.unsplash.com/photo-1586165368502-1bad197a6461?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1528819622765-d6bcf132f793?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1560174038-594a6e2e8b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1560174038-594a6e2e8b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     ],
-    "category": "Strategy",
-    "tags": ["Chess", "AI Opponent", "Multiplayer"],
-    "author": {
-      "name": "someone",
-      "profile_url": "x.com/someone",
-      "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+    category: "Simulator",
+    tags: ["Flight", "Multiplayer"],
+    author: {
+      name: "levelsio",
+      profile_url: "https://x.com/levelsio",
+      avatar: "https://unavatar.io/twitter/levelsio",
     },
-    "createdAt": "2023-05-15"
+    createdAt: "2025-02-15",
   },
   {
-    "id": "2",
-    "title": "Pixel Adventure",
-    "description": "An AI-generated platformer with procedurally created levels that are never the same twice.",
-    "url": "https://example.com/pixel-adventure",
-    "images": [
+    id: "2",
+    title: "Island Adventure",
+    description: "",
+    url: "https://ja.sperdeboer.nl/island/",
+    images: [
       "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1605899435973-ca2d1a8431cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1605899435973-ca2d1a8431cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     ],
-    "category": "Platformer",
-    "tags": ["Procedural", "Pixel Art", "Adventure"],
-    "author": {
-      "name": "someone",
-      "profile_url": "x.com/someone",
-      "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+    category: "Platformer",
+    tags: ["Procedural", "Pixel Art", "Adventure"],
+    author: {
+      name: "someone",
+      profile_url: "x.com/someone",
+      avatar: "https://ui-avatars.com/api/?name=John+Doe",
     },
-    "createdAt": "2023-06-22"
+    createdAt: "2025-02-22",
   },
   {
-    "id": "3",
-    "title": "Story Weaver",
-    "description": "An interactive fiction game where AI generates unique storylines based on your choices.",
-    "url": "https://example.com/story-weaver",
-    "images": [
-      "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    id: "3",
+    title: "3D Racer",
+    description: "",
+    url: "https://3d-racer.netlify.app",
+    images: [
+      "https://images.unsplash.com/photo-1532012197267-da84d127e765?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     ],
-    "category": "Interactive Fiction",
-    "tags": ["Story", "Text-based", "Choices Matter"],
-    "author": {
-      "name": "someone",
-      "profile_url": "x.com/someone",
-      "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+    category: "Racing",
+    tags: ["3D"],
+    author: {
+      name: "markszymik",
+      profile_url: "https://x.com/markszymik",
+      avatar: "https://unavatar.io/twitter/markszymik",
     },
-    "createdAt": "2023-04-10"
+    createdAt: "2025-02-10",
   },
   {
-    "id": "4",
-    "title": "AI Dungeon Master",
-    "description": "A text-based RPG where an AI dungeon master creates and narrates your adventure in real-time.",
-    "url": "https://example.com/ai-dungeon-master",
-    "images": [
+    id: "4",
+    title: "Shooter World",
+    description: "",
+    url: "https://shooterworldai.com",
+    images: [
       "https://images.unsplash.com/photo-1518736114810-3f3bedfec66a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1511882150382-421056c89033?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     ],
-    "category": "RPG",
-    "tags": ["Fantasy", "Text-based", "Adventure"],
-    "author": {
-      "name": "someone",
-      "profile_url": "x.com/someone",
-      "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+    category: "RPG",
+    tags: ["Fantasy", "Text-based", "Adventure"],
+    author: {
+      name: "FeineCapital",
+      profile_url: "https://x.com/feinecapital",
+      avatar: "https://unavatar.io/twitter/feinecapital",
     },
-    "createdAt": "2023-07-05"
+    createdAt: "2025-02-05",
   },
   {
-    "id": "5",
-    "title": "Voice Commander",
-    "description": "Control your spaceship with voice commands in this innovative AI-powered space simulator.",
-    "url": "https://example.com/voice-commander",
-    "images": [
+    id: "5",
+    title: "Do Not Disturb The Sane Man",
+    description: "A Project Odyssey Submission",
+    url: "https://donotdisturbthesaneman.com",
+    images: [
       "https://images.unsplash.com/photo-1581822261290-991b38693d1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     ],
-    "category": "Simulation",
-    "tags": ["Space", "Voice Control", "Sci-Fi"],
-    "author": {
-      "name": "someone",
-      "profile_url": "x.com/someone",
-      "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+    category: "Simulation",
+    tags: ["Space", "Voice Control", "Sci-Fi"],
+    author: {
+      name: "someone",
+      profile_url: "x.com/someone",
+      avatar: "https://ui-avatars.com/api/?name=John+Doe",
     },
-    "createdAt": "2023-08-18"
+    createdAt: "2025-02-18",
   },
   {
-    "id": "6",
-    "title": "Dream Painter",
-    "description": "Create artwork with AI assistance in this relaxing and creative game experience.",
-    "url": "https://example.com/dream-painter",
-    "images": [
+    id: "6",
+    title: "Rosebud AI",
+    description: "",
+    url: "https://play.rosebud.ai/p/e0b273c2-5b4e-4438-aba1-4ec8c7f944cc",
+    images: [
       "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     ],
-    "category": "Creative",
-    "tags": ["Art", "Relaxing", "Creation"],
-    "author": {
-      "name": "someone",
-      "profile_url": "x.com/someone",
-      "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+    category: "Creative",
+    tags: ["Art", "Relaxing", "Creation"],
+    author: {
+      name: "someone",
+      profile_url: "x.com/someone",
+      avatar: "https://ui-avatars.com/api/?name=John+Doe",
     },
-    "createdAt": "2023-09-01"
-  }
-]; 
+    createdAt: "2025-02-01",
+  },
+  {
+    id: "7",
+    title: "Self-Aware Snake: The Escape",
+    description: "",
+    url: "https://claude.site/artifacts/8553a897-8718-4180-8e8d-ea10d1d7a705",
+    images: [
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    category: "Creative",
+    tags: ["Art", "Relaxing", "Creation"],
+    author: {
+      name: "someone",
+      profile_url: "x.com/someone",
+      avatar: "https://ui-avatars.com/api/?name=John+Doe",
+    },
+    createdAt: "2025-02-01",
+  },
+  {
+    id: "8",
+    title: "Block World",
+    description: "",
+    url: "https://block-world-frontend-production.up.railway.app",
+    images: [
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    category: "Creative",
+    tags: ["Art", "Relaxing", "Creation"],
+    author: {
+      name: "someone",
+      profile_url: "x.com/someone",
+      avatar: "https://ui-avatars.com/api/?name=John+Doe",
+    },
+    createdAt: "2025-02-01",
+  },
+  {
+    id: "9",
+    title: "Tank Battle",
+    description: "",
+    url: "https://qtank.fly.dev",
+    images: [
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    category: "Creative",
+    tags: ["Art", "Relaxing", "Creation"],
+    author: {
+      name: "someone",
+      profile_url: "x.com/someone",
+      avatar: "https://ui-avatars.com/api/?name=John+Doe",
+    },
+    createdAt: "2025-02-01",
+  },
+  {
+    id: "10",
+    title: "PONG AR",
+    description: "",
+    url: "https://ian.8thwall.app/pong/",
+    images: [
+      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    ],
+    category: "AR",
+    tags: ["3D"],
+    author: {
+      name: "ian",
+      profile_url: "x.com/ian",
+      avatar: "https://ui-avatars.com/api/?name=John+Doe",
+    },
+    createdAt: "2025-02-01",
+  },
+];

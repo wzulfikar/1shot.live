@@ -1,7 +1,7 @@
 export const Footer = () => {
   return html`
     <footer class="bg-green-400 text-black py-8 border-t-4 border-black">
-      <div class="container mx-auto px-4">
+      <div class="container max-w-6xl mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div class="mb-4 md:mb-0">
             <h2 class="text-xl font-bold">1shot.live</h2>

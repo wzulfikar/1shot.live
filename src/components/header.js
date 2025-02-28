@@ -2,7 +2,7 @@
 export const Header = () => {
   return html`
     <header class="bg-blue-400 text-black border-b-4 border-black">
-      <div class="container mx-auto px-4 py-6 md:py-8">
+      <div class="container max-w-6xl mx-auto px-4 py-6 md:py-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div>
             <h1 class="text-3xl md:text-4xl font-bold">1shot.live</h1>

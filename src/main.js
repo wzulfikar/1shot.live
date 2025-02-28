@@ -22,9 +22,9 @@ window.useRef = useRef;
 window.html = htm.bind(h);
 
 window.PUBLIC_ENV = {
-  supabaseUrl: "http://127.0.0.1:54321",
+  supabaseUrl: "https://rzmykjpcnmriyhnevune.supabase.co",
   supabaseKey:
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS1kZW1vIiwicm9sZSI6ImFub24iLCJleHAiOjE5ODM4MTI5OTZ9.CRXP1A7WOeoJeXxjNni43kdQwgnWNReilDMblYTn_I0",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6bXlranBjbm1yaXlobmV2dW5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA2OTg2NjEsImV4cCI6MjA1NjI3NDY2MX0.nlS-vjJTRz5ot2eaDkkR6e6pa-gTNXMsg3xiEwCOGJ0",
 };
 
 // Render the App component
