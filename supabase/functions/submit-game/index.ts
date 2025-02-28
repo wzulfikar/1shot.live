@@ -10,6 +10,7 @@ interface GameSubmission {
   xProfile: string
   description: string
   turnstileToken: string
+  slug: string
 }
 
 Deno.serve(async (req) => {
@@ -26,11 +27,24 @@ Deno.serve(async (req) => {
 
     // Parse the request body
     const body: GameSubmission = await req.json()
-    const { gameName, url, xProfile, description, turnstileToken } = body
+    const { gameName, url, xProfile, description, turnstileToken, slug } = body
 
     const verifyTurnstile = await verifyTurnstileToken(turnstileToken)
     if (!verifyTurnstile.success) {
       throw new Error('Turnstile verification failed')
+    }
+
+    // Check if the game URL or slug is already in the database
+    const existingGame = await supabaseAdmin
+      .from('games')
+      .select('id')
+      .or(`url.eq.${url}, slug.eq.${slug}`)
+      .maybeSingle()
+    if (existingGame.data) {
+      throw new Error('Game URL or slug already exists')
+    }
+    if (existingGame.error) {
+      throw new Error('Error checking if game is already added')
     }
 
     // Check if URL is not 404
@@ -45,6 +59,7 @@ Deno.serve(async (req) => {
       throw new Error('X profile is not accessible')
     }
 
+    // Take screenshot of the game site
     const screenshot = await takeScreenshot(url)
     const hostname = new URL(url).hostname
     const image = await storeScreenshot({
