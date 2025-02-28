@@ -33,12 +33,17 @@ Deno.serve(async (req) => {
       throw new Error('Turnstile verification failed')
     }
 
-    // TODO:
-    // 1. check if game url is not added yet
-    // 2. check if website is accessible
-    // 3. check if x profile is accessible
-    // 4. take screenshot of the game site and upload to storage (supabase/vercel) ✅
-    // 5. insert game into database ✅
+    // Check if URL is not 404
+    const gameUrl = await fetch(url)
+    if (!gameUrl.ok) {
+      throw new Error('Game URL is not accessible')
+    }
+
+    // Check if X profile is not 404
+    const xProfileUrl = await fetch(`https://x.com/${xProfile}`)
+    if (!xProfileUrl.ok) {
+      throw new Error('X profile is not accessible')
+    }
 
     const screenshot = await takeScreenshot(url)
     const hostname = new URL(url).hostname

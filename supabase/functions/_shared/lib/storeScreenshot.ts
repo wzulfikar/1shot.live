@@ -11,7 +11,7 @@ export async function storeScreenshot(params: {
   const { imageBlob, filepath } = params
 
   if (!['image/jpeg', 'image/png', 'image/jpg', 'image/webp'].includes(imageBlob.type)) {
-    const error = `File type is not supported: ${imageBlob.type}`
+    const error = `Error processing screenshot. File type is not supported: ${imageBlob.type}`
     throw createError('storeScreenshot', {
       error,
       kind: 'VALIDATION_ERROR',
