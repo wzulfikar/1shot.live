@@ -65,7 +65,7 @@ Deno.serve(async (req) => {
     try {
       const screenshot = await takeScreenshot(url)
       if (screenshot.type === 'application/json') {
-        console.error('Error taking screenshot:', screenshot)
+        console.error(`Error taking screenshot: ${screenshot.text()}`)
         throw new Error('Error taking screenshot')
       }
 
