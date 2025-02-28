@@ -1,4 +1,5 @@
 import { corsHeaders } from '../_shared/utils/cors.ts'
+import { tryCatch } from '../_shared/utils/tryCatch.ts'
 import { supabaseAdmin } from '../_shared/lib/supabaseAdmin.ts'
 import { verifyTurnstileToken } from '../_shared/lib/verifyTurnstileToken.ts'
 import { takeScreenshot } from '../_shared/lib/takeScreenshot.ts'
@@ -31,7 +32,7 @@ Deno.serve(async (req) => {
 
     const verifyTurnstile = await verifyTurnstileToken(turnstileToken)
     if (!verifyTurnstile.success) {
-      throw new Error('Turnstile verification failed')
+      throw new Error('Turnstile verification failed. Please close and reopen the modal or refresh the page.')
     }
 
     // Check if the game URL or slug is already in the database
@@ -54,8 +55,8 @@ Deno.serve(async (req) => {
     }
 
     // Check if URL is not 404
-    const gameUrl = await fetch(url)
-    if (!gameUrl.ok) {
+    const gameUrl = await tryCatch(fetch(url))
+    if (gameUrl.error || !gameUrl.data?.ok) {
       throw new Error('Game URL is not accessible')
     }
 
