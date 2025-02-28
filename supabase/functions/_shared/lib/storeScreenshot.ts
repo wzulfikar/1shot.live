@@ -1,12 +1,12 @@
-import { createError } from '../utils/createError'
-import { supabaseAdmin } from './supabaseAdmin'
+import { createError } from '../utils/createError.ts'
+import { supabaseAdmin } from './supabaseAdmin.ts'
 
 export async function storeScreenshot(params: {
   imageBlob: Blob
-  filename: string
+  filepath: string
   maxSize?: number
 }) {
-  const { imageBlob, filename } = params
+  const { imageBlob, filepath } = params
 
   if (!['image/jpeg', 'image/png', 'image/jpg', 'image/webp'].includes(imageBlob.type)) {
     const error = `File type is not supported: ${imageBlob.type}`
@@ -35,8 +35,8 @@ export async function storeScreenshot(params: {
     })
   }
 
-  const filepath = `screenshots/${filename}`
-  const { data, error } = await supabaseAdmin.storage
+  const { data, error } = await supabaseAdmin
+    .storage
     .from('screenshots')
     .upload(filepath, imageBlob, {
       contentType: imageBlob.type,

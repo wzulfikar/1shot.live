@@ -1,7 +1,8 @@
 import { corsHeaders } from '../_shared/utils/cors.ts'
 import { supabaseAdmin } from '../_shared/lib/supabaseAdmin.ts'
-
-const TURNSTILE_SECRET_KEY = Deno.env.get('TURNSTILE_SECRET_KEY')
+import { verifyTurnstileToken } from '../_shared/lib/verifyTurnstileToken.ts'
+import { takeScreenshot } from '../_shared/lib/takeScreenshot.ts'
+import { storeScreenshot } from '../_shared/lib/storeScreenshot.ts'
 
 interface GameSubmission {
   gameName: string
@@ -24,24 +25,11 @@ Deno.serve(async (req) => {
     }
 
     // Parse the request body
-    const body: GameSubmission = await req.json()
+    const body: GameSubmission = await req.tson()
     const { gameName, url, xProfile, description, turnstileToken } = body
 
-    // Verify Turnstile token
-    const turnstileVerification = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        secret: TURNSTILE_SECRET_KEY,
-        response: turnstileToken,
-      }),
-    })
-
-    const turnstileResult = await turnstileVerification.json()
-
-    if (!turnstileResult.success) {
+    const verifyTurnstile = await verifyTurnstileToken(turnstileToken)
+    if (!verifyTurnstile.success) {
       throw new Error('Turnstile verification failed')
     }
 
@@ -49,9 +37,15 @@ Deno.serve(async (req) => {
     // 1. check if game url is not added yet
     // 2. check if website is accessible
     // 3. check if x profile is accessible
-    // 4. take screenshot of the game site and upload to storage (supabase/vercel)
+    // 4. take screenshot of the game site and upload to storage (supabase/vercel) ✅
     // 5. insert game into database ✅
 
+    const screenshot = await takeScreenshot(url)
+    const hostname = new URL(url).hostname
+    const image = await storeScreenshot({
+      imageBlob: screenshot,
+      filepath: `games/${hostname}.jpg`,
+    })
 
     // Insert the game into the database
     const { data, error } = await supabaseAdmin
@@ -61,6 +55,7 @@ Deno.serve(async (req) => {
           title: gameName,
           url,
           description,
+          images: [image.publicUrl],
           author: {
             name: xProfile,
             profile_url: `https://x.com/${xProfile}`,
