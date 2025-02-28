@@ -53,11 +53,12 @@ Deno.serve(async (req) => {
       throw new Error('Game URL is not accessible')
     }
 
+    // TODO: turns out it's not that simple to check if the X profile exists/not
     // Check if X profile is not 404
-    const xProfileUrl = await fetch(`https://x.com/${xProfile}`)
-    if (!xProfileUrl.ok) {
-      throw new Error('X profile is not accessible')
-    }
+    // const xProfileUrl = await fetch(`https://x.com/${xProfile}`)
+    // if (!xProfileUrl.ok) {
+    //   throw new Error('X profile is not accessible')
+    // }
 
     // Take screenshot of the game site
     const screenshot = await takeScreenshot(url)
