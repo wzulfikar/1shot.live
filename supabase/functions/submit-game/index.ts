@@ -45,6 +45,14 @@ Deno.serve(async (req) => {
       throw new Error('Turnstile verification failed')
     }
 
+    // TODO:
+    // 1. check if game url is not added yet
+    // 2. check if website is accessible
+    // 3. check if x profile is accessible
+    // 4. take screenshot of the game site and upload to storage (supabase/vercel)
+    // 5. insert game into database ✅
+
+
     // Insert the game into the database
     const { data, error } = await supabaseAdmin
       .from('games')
