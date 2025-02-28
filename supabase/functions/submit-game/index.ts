@@ -87,7 +87,7 @@ Deno.serve(async (req) => {
           title: gameName,
           url,
           description,
-          images: imageUrl ? [image.publicUrl] : [],
+          images: imageUrl ? [imageUrl] : [],
           author: {
             name: xProfile,
             profile_url: `https://x.com/${xProfile}`,
