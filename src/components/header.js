@@ -1,6 +1,5 @@
 import { OnlineVisitors } from "./online-visitors.js";
 
-// Header component
 export const Header = () => {
   return html`
     <header class="bg-blue-400 text-black border-b-4 border-black">
