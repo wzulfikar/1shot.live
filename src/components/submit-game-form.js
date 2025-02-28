@@ -1,21 +1,22 @@
 export const SubmitGameForm = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
-    url: '',
-    xProfile: '',
-    gameName: ''
+    url: "",
+    xProfile: "",
+    gameName: "",
+    description: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you would handle the form submission
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Reset form
-    setFormData({ url: '', xProfile: '', gameName: '' });
+    setFormData({ url: "", xProfile: "", gameName: "", description: "" });
     // Close the popup
     onClose();
   };
@@ -23,18 +24,22 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return html`
-    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 w-full max-w-md rounded relative">
-        <button 
+    <div
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div
+        class="bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-6 w-full max-w-md rounded relative"
+      >
+        <button
           onClick=${onClose}
           class="absolute top-2 right-2 text-black hover:text-gray-700"
           aria-label="Close"
         >
           <i class="fas fa-times text-xl"></i>
         </button>
-        
+
         <h2 class="text-2xl font-bold mb-4 text-black">Submit Your Game</h2>
-        
+
         <form onSubmit=${handleSubmit}>
           <div class="mb-4">
             <label class="block text-black font-bold mb-2" for="gameName">
@@ -50,7 +55,7 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
               required
             />
           </div>
-          
+
           <div class="mb-4">
             <label class="block text-black font-bold mb-2" for="url">
               Game URL
@@ -62,14 +67,30 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
               value=${formData.url}
               onChange=${handleChange}
               class="w-full px-3 py-2 border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="https://"
+              placeholder="https://mygame.com"
               required
             />
           </div>
-          
+
+          <div class="mb-4">
+            <label class="block text-black font-bold mb-2" for="url">
+              Description
+            </label>
+            <input
+              type="description"
+              id="description"
+              name="description"
+              value=${formData.description}
+              onChange=${handleChange}
+              class="w-full px-3 py-2 border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="A short description of the game"
+              required
+            />
+          </div>
+
           <div class="mb-6">
             <label class="block text-black font-bold mb-2" for="xProfile">
-              X.com Profile
+              X Username
             </label>
             <input
               type="text"
@@ -78,11 +99,11 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
               value=${formData.xProfile}
               onChange=${handleChange}
               class="w-full px-3 py-2 border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="@username"
+              placeholder="jack"
               required
             />
           </div>
-          
+
           <div class="flex justify-end">
             <button
               type="button"
@@ -102,4 +123,4 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
       </div>
     </div>
   `;
-}; 
+};
