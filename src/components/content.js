@@ -1,5 +1,4 @@
 import { GameCard } from "./game-card.js";
-import { OnlineVisitors } from "./online-visitors.js";
 import { supabaseClient } from "../lib/supabase-client.js";
 
 export const Content = () => {
@@ -63,10 +62,6 @@ export const Content = () => {
           )}
         </div>
       `}
-
-      <div class="container mx-auto px-4 mb-12">
-        <${OnlineVisitors} />
-      </div>
     </main>
   `;
 };

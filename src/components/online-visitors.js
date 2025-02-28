@@ -42,12 +42,10 @@ export const OnlineVisitors = () => {
   // If no visitors, show a placeholder
   if (!visitors.length) {
     return html`
-      <div class="max-w-xs mx-auto">
-        <div
-          class="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 transition-all duration-200 mb-6 bg-yellow-400 rounded"
-        >
-          <p class="text-sm">Waiting for visitors...</p>
-        </div>
+      <div
+        class="inline-flex h-[45px] items-center px-4 py-2 bg-yellow-400 border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-bold"
+      >
+        <p class="text-sm">Waiting for visitors...</p>
       </div>
     `;
   }
@@ -55,7 +53,7 @@ export const OnlineVisitors = () => {
   return html`
     <div class="max-w-xs mx-auto">
       <div
-        class="bg-white border-4 border-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] p-4 transition-all duration-200 mb-2 bg-yellow-400 rounded flex items-center justify-between gap-2"
+        class="flex items-center justify-between gap-3 h-[45px] px-3 py-2 bg-yellow-400 border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-bold"
       >
         <div class="text-center text-sm">
           ${visitors.length} online visitors
