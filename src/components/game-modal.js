@@ -23,7 +23,7 @@ export const GameModal = ({ game, onClose }) => {
           <h2 class="text-2xl font-bold text-black">${game.title}</h2>
 
           <div
-            class="aspect-video w-full overflow-hidden border-2 border-black rounded"
+            class="aspect-video w-full overflow-hidden border-6 border-black rounded"
           >
             <img
               src=${game.images?.[0]}

@@ -23,7 +23,7 @@ export const Content = () => {
       // Check for hash in URL
       const hash = window.location.hash.slice(1); // Remove the # symbol
       if (hash) {
-        const game = data.find(g => g.slug === hash);
+        const game = data.find((g) => g.slug === hash);
         if (game) setSelectedGame(game);
       }
     } catch (err) {
@@ -43,7 +43,7 @@ export const Content = () => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1);
       if (hash) {
-        const game = games.find(g => g.slug === hash);
+        const game = games.find((g) => g.slug === hash);
         if (game) setSelectedGame(game);
       } else {
         setSelectedGame(null);
@@ -60,7 +60,11 @@ export const Content = () => {
   const closeModal = () => {
     setSelectedGame(null);
     // Remove hash from URL without triggering hashchange
-    history.pushState("", document.title, window.location.pathname + window.location.search);
+    history.pushState(
+      "",
+      document.title,
+      window.location.pathname + window.location.search
+    );
   };
 
   return html`
@@ -76,10 +80,11 @@ export const Content = () => {
 
       ${loading &&
       html`
-        <div class="flex justify-center items-center min-h-[200px]">
+        <div class="flex flex-col gap-2 justify-center items-center min-h-[200px]">
           <div
             class="animate-spin rounded-full h-12 w-12 border-4 border-black border-t-transparent"
           ></div>
+          <span>Fetching games data</span>
         </div>
       `}
       ${error &&
@@ -97,8 +102,8 @@ export const Content = () => {
           )}
         </div>
       `}
-
-      ${selectedGame && html`<${GameModal} game=${selectedGame} onClose=${closeModal} />`}
+      ${selectedGame &&
+      html`<${GameModal} game=${selectedGame} onClose=${closeModal} />`}
     </main>
   `;
 };

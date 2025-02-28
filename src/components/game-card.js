@@ -1,6 +1,9 @@
 export const GameCard = ({ game }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  const copyGameLinkLabel = `Copy game link: 1shot.live/#${game.slug}`;
+  const [tooltipText, setTooltipText] = useState(copyGameLinkLabel);
+
   const handleImageError = (e) => {
     e.target.src = undefined;
   };
@@ -59,6 +62,23 @@ export const GameCard = ({ game }) => {
 
   // Check if we should show navigation arrows
   const hasMultipleImages = game.images && game.images.length > 1;
+
+  const handleCopyLink = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    try {
+      await navigator.clipboard.writeText(`https://1shot.live/#${game.slug}`);
+      setTooltipText("Copied!");
+
+      // Reset tooltip after 2 seconds
+      setTimeout(() => {
+        setTooltipText(copyGameLinkLabel);
+      }, 2000);
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  };
 
   return html`
     <div
@@ -133,7 +153,30 @@ export const GameCard = ({ game }) => {
         </div>
         <div class="p-4">
           <div class="min-h-[70px]">
-            <h3 class="text-lg font-bold text-black">${game.title}</h3>
+            <div class="flex items-center gap-1">
+              <h3 class="text-lg font-bold text-black">${game.title}</h3>
+              <button
+                onClick=${handleCopyLink}
+                class="group relative p-1 hover:bg-gray-100 rounded"
+                aria-label="Copy game link"
+              >
+                <i class="fas fa-link text-sm"></i>
+                <div
+                  class="absolute -top-8 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap"
+                >
+                  ${tooltipText
+                    .split(":")
+                    .map(
+                      (line, index) =>
+                        html`<span class="block"
+                          >${line}${index < tooltipText.split(":").length - 1
+                            ? ":"
+                            : ""}</span
+                        >`
+                    )}
+                </div>
+              </button>
+            </div>
             <p class="text-black mt-1 text-sm line-clamp-2">
               ${game.description || ""}
             </p>
