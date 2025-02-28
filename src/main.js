@@ -25,6 +25,7 @@ window.PUBLIC_ENV = {
   supabaseUrl: "https://rzmykjpcnmriyhnevune.supabase.co",
   supabaseKey:
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ6bXlranBjbm1yaXlobmV2dW5lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA2OTg2NjEsImV4cCI6MjA1NjI3NDY2MX0.nlS-vjJTRz5ot2eaDkkR6e6pa-gTNXMsg3xiEwCOGJ0",
+  turnstileSiteKey: "0x4AAAAAAA-9NQ4RRGfU8-HV",
 };
 
 // Render the App component

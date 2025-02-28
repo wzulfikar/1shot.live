@@ -2,16 +2,16 @@ export const GameCard = ({ game }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handleImageError = (e) => {
-    e.target.src = "https://via.placeholder.com/400x225?text=Game+Image";
+    e.target.src = undefined;
   };
 
   const handleAvatarError = (e) => {
-    e.target.src = "https://via.placeholder.com/32x32?text=User";
+    e.target.src = undefined;
   };
 
   // Ensure avatar URL has proper protocol
   const getAvatarUrl = (url) => {
-    if (!url) return "https://via.placeholder.com/32x32?text=User";
+    if (!url) return undefined;
 
     // Check if URL already has a protocol
     if (url.startsWith("http://") || url.startsWith("https://")) {

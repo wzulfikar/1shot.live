@@ -20,6 +20,7 @@ declare global {
     }
     PUBLIC_ENV: {
       supabaseKey: string;
+      turnstileSiteKey: string;
     }
   }
 }
