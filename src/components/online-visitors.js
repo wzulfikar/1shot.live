@@ -106,7 +106,7 @@ function OnlineVisitorsModal({ visitors, show, setShow, currentSessionId }) {
   const uniqueCountries = new Set(visitors.map((v) => v.country_flag)).size;
 
   return html`<div
-    class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
     onClick=${(e) => {
       if (e.target === e.currentTarget) setShow(false);
     }}
