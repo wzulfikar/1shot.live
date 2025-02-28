@@ -1,10 +1,12 @@
-import { GameCard } from "./game-card.js";
 import { supabaseClient } from "../lib/supabase-client.js";
+import { GameCard } from "./game-card.js";
+import { GameModal } from "./game-modal.js";
 
 export const Content = () => {
   const [games, setGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedGame, setSelectedGame] = useState(null);
 
   const fetchGames = async () => {
     try {
@@ -17,6 +19,13 @@ export const Content = () => {
       if (error) throw error;
 
       setGames(data);
+
+      // Check for hash in URL
+      const hash = window.location.hash.slice(1); // Remove the # symbol
+      if (hash) {
+        const game = data.find(g => g.slug === hash);
+        if (game) setSelectedGame(game);
+      }
     } catch (err) {
       setError(err.message);
     } finally {
@@ -29,8 +38,30 @@ export const Content = () => {
 
     // Listen for refresh requests
     window.addEventListener("refresh-games", fetchGames);
-    return () => window.removeEventListener("refresh-games", fetchGames);
-  }, []);
+
+    // Listen for hash changes
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1);
+      if (hash) {
+        const game = games.find(g => g.slug === hash);
+        if (game) setSelectedGame(game);
+      } else {
+        setSelectedGame(null);
+      }
+    };
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("refresh-games", fetchGames);
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, [games]);
+
+  const closeModal = () => {
+    setSelectedGame(null);
+    // Remove hash from URL without triggering hashchange
+    history.pushState("", document.title, window.location.pathname + window.location.search);
+  };
 
   return html`
     <main class="container max-w-6xl mx-auto px-4 pt-8">
@@ -66,6 +97,8 @@ export const Content = () => {
           )}
         </div>
       `}
+
+      ${selectedGame && html`<${GameModal} game=${selectedGame} onClose=${closeModal} />`}
     </main>
   `;
 };
