@@ -1,3 +1,8 @@
+export const supabaseClient = () => {
+  const { supabaseUrl, supabaseKey } = window.PUBLIC_ENV;
+  return window.supabase.createClient(supabaseUrl, supabaseKey);
+};
+
 // Initialize presence channel
 export const initPresence = async (sessionId) => {
   const { supabaseUrl, supabaseKey } = window.PUBLIC_ENV;
