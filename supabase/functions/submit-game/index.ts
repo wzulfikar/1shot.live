@@ -61,12 +61,18 @@ Deno.serve(async (req) => {
     // }
 
     // Take screenshot of the game site
-    const screenshot = await takeScreenshot(url)
-    const hostname = new URL(url).hostname
-    const image = await storeScreenshot({
-      imageBlob: screenshot,
-      filepath: `games/${hostname}.jpg`,
-    })
+    let imageUrl = ''
+    try {
+      const screenshot = await takeScreenshot(url)
+      const hostname = new URL(url).hostname
+      const image = await storeScreenshot({
+        imageBlob: screenshot,
+        filepath: `games/${hostname}.jpg`,
+      })
+      imageUrl = image.publicUrl
+    } catch (error) {
+      console.error('Error taking screenshot:', error)
+    }
 
     // Insert the game into the database
     const { data, error } = await supabaseAdmin
@@ -76,7 +82,7 @@ Deno.serve(async (req) => {
           title: gameName,
           url,
           description,
-          images: [image.publicUrl],
+          images: imageUrl ? [image.publicUrl] : [],
           author: {
             name: xProfile,
             profile_url: `https://x.com/${xProfile}`,
