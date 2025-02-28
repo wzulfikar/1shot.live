@@ -64,6 +64,11 @@ Deno.serve(async (req) => {
     let imageUrl = ''
     try {
       const screenshot = await takeScreenshot(url)
+      if (screenshot.type === 'application/json') {
+        console.error('Error taking screenshot:', screenshot)
+        throw new Error('Error taking screenshot')
+      }
+
       const hostname = new URL(url).hostname
       const image = await storeScreenshot({
         imageBlob: screenshot,
