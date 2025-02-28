@@ -1,6 +1,8 @@
 import { createError } from '../utils/createError.ts'
 import { supabaseAdmin } from './supabaseAdmin.ts'
 
+const BUCKET_NAME = 'screenshots'
+
 export async function storeScreenshot(params: {
   imageBlob: Blob
   filepath: string
@@ -37,7 +39,7 @@ export async function storeScreenshot(params: {
 
   const { data, error } = await supabaseAdmin
     .storage
-    .from('screenshots')
+    .from(BUCKET_NAME)
     .upload(filepath, imageBlob, {
       contentType: imageBlob.type,
       upsert: true,
@@ -57,7 +59,7 @@ export async function storeScreenshot(params: {
 
   const publicUrl = supabaseAdmin
     .storage
-    .from('public_bucket')
+    .from(BUCKET_NAME)
     .getPublicUrl(data.path).data
     .publicUrl
 

@@ -1,17 +1,17 @@
 -- Create a storage bucket for public files
 INSERT INTO storage.buckets (id, name, public)
-VALUES ('public', 'public_bucket', true);
+VALUES ('public', 'screenshots', true);
 
 -- Allow public access to files in the public bucket
 CREATE POLICY "Public Access"
 ON storage.objects FOR SELECT
-USING (bucket_id = 'public_bucket');
+USING (bucket_id = 'screenshots');
 
 -- Allow authenticated users to upload files to public bucket
 CREATE POLICY "Authenticated users can upload"
 ON storage.objects FOR INSERT
 WITH CHECK (
-    bucket_id = 'public_bucket'
+    bucket_id = 'screenshots'
     AND auth.role() = 'authenticated'
 );
 
@@ -19,13 +19,13 @@ WITH CHECK (
 CREATE POLICY "Users can update their own files"
 ON storage.objects FOR UPDATE
 USING (
-    bucket_id = 'public_bucket'
+    bucket_id = 'screenshots'
     AND auth.uid() = owner
 );
 
 CREATE POLICY "Users can delete their own files"
 ON storage.objects FOR DELETE
 USING (
-    bucket_id = 'public_bucket'
+    bucket_id = 'screenshots'
     AND auth.uid() = owner
 );
