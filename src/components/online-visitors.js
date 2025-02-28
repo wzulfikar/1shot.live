@@ -21,7 +21,11 @@ export const OnlineVisitors = () => {
     const initializePresence = async () => {
       try {
         const countryFlag = getCountryFlagEmoji();
-        await initPresence(sessionId.current, countryFlag);
+        await initPresence({
+          sessionId: sessionId.current,
+          countryFlag: countryFlag?.emoji,
+          countryName: countryFlag?.name,
+        });
       } catch (error) {
         console.error("Error initializing presence:", error);
       }
@@ -131,6 +135,7 @@ function OnlineVisitorsModal({ visitors, show, setShow, currentSessionId }) {
           ${visitors.map((visitor, index) => {
             const visitorId = visitor?.session_id || "Unknown";
             const countryFlag = visitor?.country_flag;
+            const countryName = visitor?.country_name;
             const isCurrentUser = visitorId === currentSessionId;
 
             return html`
@@ -151,7 +156,7 @@ function OnlineVisitorsModal({ visitors, show, setShow, currentSessionId }) {
                   <div class="font-bold text-black">
                     ${visitorId} ${isCurrentUser ? "(You)" : ""}
                   </div>
-                  <div class="text-sm text-gray-600">${countryFlag}</div>
+                  <div class="text-sm font-medium">${countryFlag} ${countryName}</div>
                 </div>
               </li>
             `;

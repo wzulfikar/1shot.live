@@ -4,7 +4,7 @@ export const supabaseClient = () => {
 };
 
 // Initialize presence channel
-export const initPresence = async (sessionId, countryFlag) => {
+export const initPresence = async ({ sessionId, countryFlag, countryName }) => {
   const { supabaseUrl, supabaseKey } = window.PUBLIC_ENV;
   const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
   const _ = await supabase.auth.getSession();
@@ -48,6 +48,7 @@ export const initPresence = async (sessionId, countryFlag) => {
       await channel.track({
         session_id: sessionId,
         country_flag: countryFlag,
+        country_name: countryName,
         timestamp: new Date().toISOString(),
       });
     }

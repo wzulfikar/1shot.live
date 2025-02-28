@@ -4,9 +4,11 @@ export function getCountryFlagEmoji() {
 
   // Convert country code to flag emoji
   // Country code is two letters, so we convert each letter to a regional indicator symbol
-  return country.countryCode
+  const emoji = country.countryCode
     .toUpperCase()
     .replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397));
+
+  return { emoji, name: country.countryName };
 }
 
 function detectCountryFromTimezone() {
