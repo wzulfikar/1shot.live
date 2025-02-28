@@ -11,26 +11,26 @@ export const Header = () => {
               Discover games built with AI
             </p>
           </div>
-          <div class="mt-4 md:mt-0 flex flex-col md:flex-row items-center gap-4">
+          <div
+            class="mt-4 md:mt-0 flex flex-col md:flex-row items-center gap-4"
+          >
             <${OnlineVisitors} />
-            <div class="flex space-x-3">
-              <button
-                id="submit-game-btn"
-                class="neo-button inline-flex items-center px-4 py-2 bg-purple-400 border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-purple-500 font-bold"
-              >
-                <i class="fas fa-plus mr-2"></i> Submit Game
-              </button>
-              <a
-                href="https://github.com/wzulfikar/1shot.live"
-                target="_blank"
-                class="neo-button inline-flex items-center px-4 py-2 bg-pink-400 border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-500 font-bold"
-              >
-                <i class="fab fa-github mr-2"></i> GitHub
-              </a>
-            </div>
+            <a
+              href="https://github.com/wzulfikar/1shot.live"
+              target="_blank"
+              class="neo-button inline-flex items-center px-4 py-2 bg-pink-400 border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-pink-500 font-bold"
+            >
+              <i class="fab fa-github mr-2"></i> GitHub
+            </a>
+            <button
+              id="submit-game-btn"
+              class="neo-button inline-flex items-center px-4 py-2 bg-purple-400 border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:bg-purple-500 font-bold"
+            >
+              <i class="fas fa-plus mr-2"></i> Submit Game
+            </button>
           </div>
         </div>
       </div>
     </header>
   `;
-}; 
+};

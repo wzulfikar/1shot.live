@@ -47,7 +47,9 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
 
     try {
       if (!turnstileToken) {
-        throw new Error("Please complete the Turnstile challenge");
+        throw new Error(
+          "Please complete the Turnstile challenge. If it's not showing, please refresh the page."
+        );
       }
 
       // Submit to Edge Function
@@ -76,6 +78,9 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
       // Reset the widget
       window.turnstile.reset();
       onClose();
+      
+      // Trigger refresh of games list
+      window.dispatchEvent(new Event("refresh-games"));
     } catch (err) {
       setError(err.message);
     } finally {
@@ -118,6 +123,7 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
               type="text"
               id="gameName"
               name="gameName"
+              placeholder="My Awesome Game"
               value=${formData.gameName}
               onChange=${handleChange}
               class="w-full px-3 py-2 border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -153,7 +159,6 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
               onChange=${handleChange}
               class="w-full px-3 py-2 border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-400"
               placeholder="A short description of the game"
-              required
             />
           </div>
 
@@ -171,6 +176,10 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
               placeholder="jack"
               required
             />
+            <div class="text-sm text-gray-500 mt-2">
+              We need your X username so we know the creator of the game. If you
+              don't use X and want to add your game, please open a PR in Github.
+            </div>
           </div>
 
           <div class="mb-6">

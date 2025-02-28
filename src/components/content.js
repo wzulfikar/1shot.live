@@ -6,10 +6,6 @@ export const Content = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetchGames();
-  }, []);
-
   const fetchGames = async () => {
     try {
       const supabase = supabaseClient();
@@ -27,6 +23,14 @@ export const Content = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    fetchGames();
+
+    // Listen for refresh requests
+    window.addEventListener("refresh-games", fetchGames);
+    return () => window.removeEventListener("refresh-games", fetchGames);
+  }, []);
 
   return html`
     <main class="container max-w-6xl mx-auto px-4 pt-8">
