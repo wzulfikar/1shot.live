@@ -1,3 +1,4 @@
+import { getCountryFlagEmoji } from "../lib/country-flag.js";
 import { getSessionId } from "../lib/session-id.js";
 import { initPresence } from "../lib/supabase-client.js";
 
@@ -18,7 +19,8 @@ export const OnlineVisitors = () => {
     // Initialize presence and track visitors
     const initializePresence = async () => {
       try {
-        await initPresence(sessionId.current);
+        const countryFlag = getCountryFlagEmoji();
+        await initPresence(sessionId.current, countryFlag);
       } catch (error) {
         console.error("Error initializing presence:", error);
       }
@@ -61,6 +63,7 @@ export const OnlineVisitors = () => {
         <ul class="list-none p-0 flex h-6 -space-x-2 items-center">
           ${sortedVisitors.slice(0, 5).map((visitor, index) => {
             const visitorId = visitor?.session_id || "Unknown";
+            const countryFlag = visitor?.country_flag;
             const isCurrentUser = visitorId === sessionId.current;
             const className = isCurrentUser ? "border-2 border-green-700" : "";
 
@@ -77,7 +80,7 @@ export const OnlineVisitors = () => {
                 <div
                   class="absolute -top-8 left-1/2 -translate-x-1/2 hidden group-hover:block bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap"
                 >
-                  ${visitorId} ${isCurrentUser ? "(You)" : ""}
+                  ${visitorId} ${isCurrentUser ? "(You)" : ""} ${countryFlag}
                 </div>
               </li>
             `;
