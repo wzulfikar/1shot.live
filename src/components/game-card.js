@@ -141,10 +141,6 @@ export const GameCard = ({ game }) => {
 
           <div>
             <div class="mt-3 flex items-center flex-wrap min-h-[60px]">
-              <span
-                class="bg-pink-300 text-black text-xs px-2 py-1 border border-black mb-1 mr-1 font-bold mb-auto"
-                >${game.category || "Game"}</span
-              >
               ${game.tags?.map(
                 (tag, index) => html`
                   <span
@@ -155,6 +151,13 @@ export const GameCard = ({ game }) => {
                 `
               )}
             </div>
+
+            <div class="mt-3 flex items-center">
+              <span class="text-xs text-gray-600 font-mono truncate">
+                ${getHostname(game.url)}
+              </span>
+            </div>
+
             ${game.author &&
             html`
               <div class="mt-3 flex items-center border-t-2 border-black pt-3">
@@ -179,3 +182,12 @@ export const GameCard = ({ game }) => {
     </div>
   `;
 };
+
+function getHostname(url) {
+  try {
+    const hostname = new URL(url).hostname;
+    return hostname.replace(/^www\./, "");
+  } catch {
+    return null;
+  }
+}
