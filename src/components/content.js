@@ -74,13 +74,15 @@ export const Content = () => {
       >
         <h2 class="text-2xl font-bold text-black">Recently Added</h2>
         <p class="text-black font-medium">
-          Explore our collection of AI-built games
+          Explore our curation of AI-built games
         </p>
       </div>
 
       ${loading &&
       html`
-        <div class="flex flex-col gap-2 justify-center items-center min-h-[200px]">
+        <div
+          class="flex flex-col gap-2 justify-center items-center min-h-[200px]"
+        >
           <div
             class="animate-spin rounded-full h-12 w-12 border-4 border-black border-t-transparent"
           ></div>
