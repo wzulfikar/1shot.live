@@ -123,8 +123,7 @@ function OnlineVisitorsModal({ visitors, show, setShow, currentSessionId }) {
       </button>
 
       <h2 class="text-2xl font-bold mb-4 text-black">
-        ${visitors.length} online visitors from ${uniqueCountries}
-        ${uniqueCountries === 1 ? " country" : " countries"}
+        ${visitors.length} online visitors from ${uniqueCountries} countries
       </h2>
 
       <div class="max-h-[60vh] overflow-y-auto">
