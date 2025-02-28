@@ -22,8 +22,3 @@ export async function takeScreenshot(url: string) {
 
   return blob
 }
-
-(async () => {
-  const result = await takeScreenshot('https://www.google.com')
-  console.log('result:', result);
-})()
