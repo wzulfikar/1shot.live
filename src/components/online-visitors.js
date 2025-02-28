@@ -7,14 +7,27 @@ export const OnlineVisitors = () => {
   const [visitors, setVisitors] = useState([]);
   const [showModal, setShowModal] = useState(false);
 
-  const sortedVisitors = [...visitors].sort((a, b) => {
-    // Always put current user first
-    if (a.session_id === sessionId.current) return -1;
-    if (b.session_id === sessionId.current) return 1;
-
-    // Then sort by timestamp (newest first)
-    return (b.timestamp || 0) - (a.timestamp || 0);
-  });
+  const uniqueVisitors = useMemo(() => {
+    // Create a Map to store the latest presence for each sessionId
+    const visitorMap = new Map();
+    
+    visitors.forEach(visitor => {
+      const currentVisitor = visitorMap.get(visitor.session_id);
+      // Keep the most recent presence for each sessionId
+      if (!currentVisitor || (visitor.timestamp > currentVisitor.timestamp)) {
+        visitorMap.set(visitor.session_id, visitor);
+      }
+    });
+    
+    // Convert Map back to array and sort
+    return Array.from(visitorMap.values()).sort((a, b) => {
+      // Always put current user first
+      if (a.session_id === sessionId.current) return -1;
+      if (b.session_id === sessionId.current) return 1;
+      // Then sort by timestamp (newest first)
+      return (b.timestamp || 0) - (a.timestamp || 0);
+    });
+  }, [visitors]);
 
   useEffect(() => {
     // Initialize presence and track visitors
@@ -47,7 +60,7 @@ export const OnlineVisitors = () => {
   }, []);
 
   // If no visitors, show a placeholder
-  if (!visitors.length) {
+  if (!uniqueVisitors.length) {
     return html`
       <div
         class="inline-flex h-[45px] items-center px-4 py-2 bg-yellow-400 border-2 border-black rounded shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] font-bold"
@@ -64,10 +77,10 @@ export const OnlineVisitors = () => {
         onClick=${() => setShowModal(true)}
       >
         <div class="text-center text-sm">
-          ${visitors.length} online visitors
+          ${uniqueVisitors.length} online visitors
         </div>
         <ul class="list-none p-0 flex h-6 -space-x-2 items-center">
-          ${sortedVisitors.slice(0, 5).map((visitor, index) => {
+          ${uniqueVisitors.slice(0, 5).map((visitor, index) => {
             const visitorId = visitor?.session_id || "Unknown";
             const countryFlag = visitor?.country_flag;
             const isCurrentUser = visitorId === sessionId.current;
@@ -97,7 +110,7 @@ export const OnlineVisitors = () => {
 
     ${showModal
       ? html`<${OnlineVisitorsModal}
-          visitors=${sortedVisitors}
+          visitors=${uniqueVisitors}
           show=${showModal}
           setShow=${setShowModal}
           currentSessionId=${sessionId.current}
