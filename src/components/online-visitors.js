@@ -2,8 +2,17 @@ import { getSessionId } from "../lib/session-id.js";
 import { initPresence } from "../lib/supabase-client.js";
 
 export const OnlineVisitors = () => {
-  const [visitors, setVisitors] = useState([]);
   const sessionId = useRef(getSessionId());
+  const [visitors, setVisitors] = useState([]);
+
+  const sortedVisitors = [...visitors].sort((a, b) => {
+    // Always put current user first
+    if (a.session_id === sessionId.current) return -1;
+    if (b.session_id === sessionId.current) return 1;
+
+    // Then sort by timestamp (newest first)
+    return (b.timestamp || 0) - (a.timestamp || 0);
+  });
 
   useEffect(() => {
     // Initialize presence and track visitors
@@ -52,7 +61,7 @@ export const OnlineVisitors = () => {
           ${visitors.length} online visitors
         </div>
         <ul class="list-none p-0 flex h-6 -space-x-2 items-center">
-          ${visitors.slice(0, 5).map((visitor, index) => {
+          ${sortedVisitors.slice(0, 5).map((visitor, index) => {
             const visitorId = visitor?.session_id || "Unknown";
             const isCurrentUser = visitorId === sessionId.current;
             const className = isCurrentUser ? "border-2 border-green-700" : "";
