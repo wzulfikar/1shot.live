@@ -6,7 +6,7 @@ export const Header = () => {
       <div class="container max-w-6xl mx-auto px-4 py-6 md:py-8">
         <div class="flex flex-col md:flex-row justify-between items-center">
           <div>
-            <h1 class="text-3xl md:text-4xl font-bold">1shot.live</h1>
+            <h1 class="text-3xl md:text-4xl font-bold">💥 1shot.live</h1>
             <p class="mt-2 text-black font-medium">
               Discover games built with AI
             </p>

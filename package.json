@@ -1,6 +1,7 @@
 {
   "name": "1shot.live",
   "scripts": {
+    "dev": "npx live-server",
     "supabase:typegen": "bunx supabase gen types --lang=typescript --local > supabase/database-generated.types.ts"
   },
   "devDependencies": {

@@ -29,7 +29,7 @@ export const Footer = () => {
         <div
           class="mt-6 text-center text-black font-medium border-t-2 border-black pt-4"
         >
-          ${new Date().getFullYear()} · 1shot.live · All rights reserved
+          ${new Date().getFullYear()} · 💥 1shot.live · All rights reserved
         </div>
       </div>
     </footer>
