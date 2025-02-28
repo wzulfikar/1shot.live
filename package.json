@@ -1,5 +1,8 @@
 {
   "name": "1shot.live",
+  "scripts": {
+    "supabase:typegen": "bunx supabase gen types --lang=typescript --local > supabase/database-generated.types.ts"
+  },
   "devDependencies": {
     "@supabase/supabase-js": "^2.49.1"
   }

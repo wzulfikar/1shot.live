@@ -30,10 +30,10 @@ export const initPresence = async (sessionId) => {
       );
     })
     .on("presence", { event: "join" }, ({ key, newPresences }) => {
-      console.log("New visitor joined:", newPresences);
+      // console.log("New visitor joined:", newPresences);
     })
     .on("presence", { event: "leave" }, ({ key, leftPresences }) => {
-      console.log("Visitor left:", leftPresences);
+      // console.log("Visitor left:", leftPresences);
     });
 
   // Subscribe to the channel and enter the room

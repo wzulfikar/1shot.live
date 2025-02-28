@@ -169,8 +169,8 @@ export const gamesData = [
     description: "",
     url: "https://ian.8thwall.app/pong/",
     images: [
-      "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "https://i17owyti0oq0avxw.public.blob.vercel-storage.com/ian-pong-1-aSZdmbVS5M7EbYOpSOoSrIDqSjW0e7.png",
+      "",
     ],
     category: "AR",
     tags: ["3D"],
