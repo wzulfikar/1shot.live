@@ -1,5 +1,5 @@
-import { corsHeaders } from '../_shared/cors.ts'
-import { supabaseAdmin } from '../_shared/supabase-admin.js'
+import { corsHeaders } from '../_shared/utils/cors.ts'
+import { supabaseAdmin } from '../_shared/lib/supabaseAdmin.ts'
 
 const TURNSTILE_SECRET_KEY = Deno.env.get('TURNSTILE_SECRET_KEY')
 
