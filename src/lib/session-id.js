@@ -19,7 +19,35 @@ const nouns = [
   'raven', 'shark', 'camel', 'bison', 'llama',
   'lemur', 'mole', 'viper', 'horse', 'mouse',
   'parrot', 'ferret', 'goose', 'puma', 'iguana',
-  'turtle', 'wombat', 'falcon', 'monkey', 'quail'
+  'turtle', 'wombat', 'falcon', 'monkey', 'quail',
+
+  'luffy', 'zoro', 'nami', 'usopp', 'sanji',
+  'chopper', 'robin', 'franky', 'brook', 'jinbe',
+  'ace', 'sabo', 'shanks', 'dragon', 'garp',
+  'rayleigh', 'mihawk', 'hancock', 'buggy', 'law',
+  'kid', 'marco', 'whitebeard', 'kaido', 'bigmom',
+  'roger', 'yamato', 'crocodile', 'doflamingo', 'kuma',
+  'aokiji', 'kizaru', 'akainu', 'sengoku', 'coby',
+  'vivi', 'carrot', 'perona', 'moria', 'katakuri',
+  'queen', 'king', 'jack', 'oden', 'toki',
+
+  'goku', 'vegeta', 'gohan', 'piccolo', 'trunks',
+  'goten', 'bulma', 'krillin', 'roshi', 'yamcha',
+  'tien', 'chiaotzu', 'frieza', 'cell', 'buu',
+  'beerus', 'whis', 'jiren', 'broly', 'bardock',
+  'raditz', 'nappa', 'ginyu', 'cooler', 'zamasu',
+  'gowasu', 'toppo', 'hit', 'cabba', 'caulifla',
+  'kale', 'champa', 'zeno', 'pilaf', 'launch',
+  'videl', 'pan', 'hercule', 'android', 'dabura',
+
+  'pikachu', 'charizard', 'mewtwo', 'mew', 'snorlax',
+  'gengar', 'gyarados', 'dragonite', 'eevee', 'jigglypuff',
+  'lucario', 'garchomp', 'greninja', 'rayquaza', 'arceus',
+  'bulbasaur', 'squirtle', 'magikarp', 'psyduck', 'slowpoke',
+  'meowth', 'lugia', 'ho-oh', 'celebi', 'groudon',
+  'kyogre', 'dialga', 'palkia', 'giratina', 'darkrai',
+  'blaziken', 'gardevoir', 'tyranitar', 'alakazam', 'machamp',
+  'scizor', 'umbreon', 'sylveon', 'mimikyu', 'wooper'
 ];
 
 function generateRandomId() {
