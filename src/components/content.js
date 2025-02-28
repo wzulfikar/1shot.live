@@ -55,7 +55,7 @@ export const Content = () => {
       window.removeEventListener("refresh-games", fetchGames);
       window.removeEventListener("hashchange", handleHashChange);
     };
-  }, [games]);
+  }, []);
 
   const closeModal = () => {
     setSelectedGame(null);

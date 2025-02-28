@@ -35,16 +35,22 @@ Deno.serve(async (req) => {
     }
 
     // Check if the game URL or slug is already in the database
-    const existingGame = await supabaseAdmin
+    const existingGameByUrl = await supabaseAdmin
       .from('games')
       .select('id')
-      .or(`url.eq.${url}, slug.eq.${slug}`)
+      .eq('url', url)
       .maybeSingle()
-    if (existingGame.data) {
-      throw new Error('Game URL or slug already exists')
+    if (existingGameByUrl.data) {
+      throw new Error('Game URL already exists')
     }
-    if (existingGame.error) {
-      throw new Error('Error checking if game is already added')
+
+    const existingGameBySlug = await supabaseAdmin
+      .from('games')
+      .select('id')
+      .eq('slug', slug)
+      .maybeSingle()
+    if (existingGameBySlug.data) {
+      throw new Error('Game slug already exists')
     }
 
     // Check if URL is not 404
@@ -65,7 +71,9 @@ Deno.serve(async (req) => {
     try {
       const screenshot = await takeScreenshot(url)
       if (screenshot.type === 'application/json') {
-        console.error(`Error taking screenshot: ${screenshot.text()}`)
+        // Transform the blob to string to read the error message
+        const errorText = await screenshot.text()
+        console.error(`Error taking screenshot: ${errorText}`)
         throw new Error('Error taking screenshot')
       }
 
@@ -87,6 +95,7 @@ Deno.serve(async (req) => {
           title: gameName,
           url,
           description,
+          slug,
           images: imageUrl ? [imageUrl] : [],
           author: {
             name: xProfile,

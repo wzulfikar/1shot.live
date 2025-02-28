@@ -4,6 +4,7 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
     xProfile: "",
     gameName: "",
     description: "",
+    slug: "",
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -73,7 +74,7 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
       }
 
       // Reset form
-      setFormData({ url: "", xProfile: "", gameName: "", description: "" });
+      setFormData({ url: "", xProfile: "", gameName: "", description: "", slug: "" });
       setTurnstileToken(null);
       // Reset the widget
       window.turnstile.reset();
@@ -145,6 +146,25 @@ export const SubmitGameForm = ({ isOpen, onClose }) => {
               placeholder="https://mygame.com"
               required
             />
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-black font-bold mb-2" for="slug">
+              Slug
+            </label>
+            <input
+              type="text"
+              id="slug"
+              name="slug"
+              value=${formData.slug}
+              onChange=${handleChange}
+              class="w-full px-3 py-2 border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+              placeholder="my-awesome-game"
+              required
+            />
+            <div class="text-sm text-gray-500 mt-2">
+              A unique identifier for your game that will be used in the URL (e.g. 1shot.live/#my-game)
+            </div>
           </div>
 
           <div class="mb-4">
